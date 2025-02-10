@@ -1,0 +1,29 @@
+services:
+  sandbox:
+    build:
+      context: ./sandbox
+      platforms:
+        - linux/amd64
+    networks:
+      - playground
+    cap_add:
+      - CAP_SYS_PTRACE
+      - CAP_NET_RAW
+    platform: linux/amd64
+    deploy:
+      resources:
+        limits:
+          memory: 0.5G
+          cpus: '0.03'
+  flag-server:
+    build: 
+      context: ./flag_server
+    volumes:
+      - ./flag_server/flag_server.py:/flag_server.py
+    networks:
+      - playground
+    entrypoint: gunicorn -b 0.0.0.0:80 flag_server:app
+
+networks:
+  playground:
+    internal: true
