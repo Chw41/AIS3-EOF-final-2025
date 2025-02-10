@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    image: php:7.4-apache
+    ports:
+      - "23456:80"
+    volumes:
+      - ./html:/var/www/html
+      - ./config:/var/www/config
+      - ./test:/srv/volume/public:ro
+      - ./test2:/srv/volume/private:ro

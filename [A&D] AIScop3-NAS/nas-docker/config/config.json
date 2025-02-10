@@ -1,0 +1,8 @@
+{
+    "system": {
+        "name": "AISCOP3",
+        "version": "4.8763"
+    },
+    "volumes_path": "/var/www/config/volumes.json",
+    "otp_db_path": "/var/www/config/otp.json"
+}

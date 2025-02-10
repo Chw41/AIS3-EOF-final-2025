@@ -1,0 +1,34 @@
+{
+    "public": {
+        "path": "/srv/volumes/public",
+        "permissions": [
+            {
+                "group": "user",
+                "permissions": [
+                    "read"
+                ]
+            },
+            {
+                "group": "admin",
+                "permissions": [
+                    "read",
+                    "write",
+                    "delete"
+                ]
+            }
+        ]
+    },
+    "private": {
+        "path": "/srv/volumes/private",
+        "permissions": [
+            {
+                "group": "admin",
+                "permissions": [
+                    "read",
+                    "write",
+                    "delete"
+                ]
+            }
+        ]
+    }
+}
