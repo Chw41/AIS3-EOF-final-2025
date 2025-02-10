@@ -1,0 +1,14 @@
+services:
+  cgi:
+    image: ghcr.io/bogay/aiscop3:latest
+    init: true
+    ports:
+      - "8080:80"
+    volumes:
+      - "./waf.lua:/etc/apache/lua/waf.lua:ro"
+      - "./excel-pay-data/aiscop3/users.xlsx:/var/run/excel-pay/aiscop3/users.xlsx:rw"
+      - "./excel-pay-data/aiscop3/transactions.xlsx:/var/run/excel-pay/aiscop3/transactions.xlsx:rw"
+      - "./excel-pay-data/aiscop3/products.xlsx:/var/run/excel-pay/aiscop3/products.xlsx:ro"
+    environment:
+      - "DATABASE_PATH=/var/run/excel-pay/aiscop3"
+      - "XONSH_DATA_DIR=/tmp/xonsh"
